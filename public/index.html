@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rick and Morty API</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Rick and Morty API</h1>
+  <button id="characters">GET Characters</button>
+  <button id="locations">GET Locations</button>
+  <button id="episodes">GET Episodes</button>
+  <button id="singleCharacter">GET Single Character</button>
+
+  <div id="response"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('#characters').click(function() {
+        $.get("/api/characters", function(data) {
+          $("#response").text(JSON.stringify(data));
+        });
+      });
+
+      $('#locations').click(function() {
+        $.get("/api/locations", function(data) {
+          $("#response").text(JSON.stringify(data));
+        });
+      });
+
+      $('#episodes').click(function() {
+        $.get("/api/episodes", function(data) {
+          $("#response").text(JSON.stringify(data));
+        });
+      });
+
+      $('#singleCharacter').click(function() {
+        $.get("/api/singleCharacter", function(data) {
+          $("#response").text(JSON.stringify(data));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
